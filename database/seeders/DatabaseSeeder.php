@@ -3,12 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Superhero;
-use Illuminate\Database\Seeder;
-
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-//use Illuminate\Database\Seeder;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,20 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            GenderSeeder::class,
+            UniverseSeeder::class,
+            SuperheroeSeeder::class,
+        ]);
         // User::factory(10)->create();
 
-        //User::factory()->create([
-            //'name' => 'Test User',
-            //'email' => 'test@example.com',
-       // ]);
-
-       $this->call([
-           GenderSeeder:: class,
-           UniverseSeeder:: Class
-       ]);
-
-       SuperHero::factory(100)->create();
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
 
 
-     }
+    }
 }
